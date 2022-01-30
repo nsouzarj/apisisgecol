@@ -14,16 +14,12 @@ public class ServicoLogin {
 
 	@Autowired
 	private EntityManager entityManager;
-
 	public Usuario busca(String emaiprincipal, String senha) {
-		
 
         try {
         	Usuario novo=null;
     		Usuario usu = (Usuario) entityManager.createQuery("from Usuario where emailprincipal=" + "'" + emaiprincipal.toString() + "'").getSingleResult();
-
     		boolean valido = new BCryptPasswordEncoder().matches(senha, usu.getSenha());
-
     		if (valido == true) {
                 novo=usu;
     			System.out.println("Anchou"); 

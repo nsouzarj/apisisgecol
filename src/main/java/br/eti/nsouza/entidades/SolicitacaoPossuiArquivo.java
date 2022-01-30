@@ -1,5 +1,9 @@
 package br.eti.nsouza.entidades;
 
+import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -8,7 +12,13 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ApiModel (
+		value       = "Classe Solicitacao PossuiArquivo",
+		description = "Esta classe e contem os arquivos do sistea."
+)
 @Embeddable
 public class SolicitacaoPossuiArquivo implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,40 +32,17 @@ public class SolicitacaoPossuiArquivo implements Serializable {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "idarquivoanexo")
 	private SolicitacaoAnexo solicitacaoAnexo;
-
-	public SolicitacaoPossuiArquivo() {
-	}
-
-	public SolicitacaoPossuiArquivo(Solicitacao solicitacao,
-			SolicitacaoAnexo solicitacaoAnexo) {
-		this.solicitacao = solicitacao;
-		this.solicitacaoAnexo = solicitacaoAnexo;
-	}
-
 	public Solicitacao getSolicitacao() {
 		return solicitacao;
 	}
-
 	public void setSolicitacao(Solicitacao solicitacao) {
 		this.solicitacao = solicitacao;
 	}
-
 	public SolicitacaoAnexo getSolicitacaoAnexo() {
 		return solicitacaoAnexo;
 	}
-
 	public void setSolicitacaoAnexo(SolicitacaoAnexo solicitacaoAnexo) {
 		this.solicitacaoAnexo = solicitacaoAnexo;
+
 	}
-
-	@Override
-	public String toString() {
-		return "SolicitacaoPossuiArquivo [solicitacao=" + solicitacao
-				+ ", solicitacaoAnexo=" + solicitacaoAnexo + "]";
-	}
-
-	
-
-	
-	
 }
