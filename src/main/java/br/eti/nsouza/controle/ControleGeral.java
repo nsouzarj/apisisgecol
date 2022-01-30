@@ -70,8 +70,7 @@ public class ControleGeral {
 
 	@Autowired
 	private ServicoUf servicoUf;
-	@Autowired
-	private ServicoComarca servicoComarca;
+
 	@Autowired
 	private ServicoBanca servicoBanca;
 
@@ -136,45 +135,7 @@ public class ControleGeral {
 
 	}
 
-	/**
-	 * Pega todas as comarcas
-	 * @return
-	 */
-	@CrossOrigin
-	@GetMapping(path = "/comarca")
-	@ResponseBody
-	List<Comarca> findAll2() {
-		List<Comarca> com = servicoComarca.findAll();
-		return com;
-	}
 
-	/**
-	 * Busca unica comarca
-	 * 
-	 * @param idcomarca
-	 * @return
-	 */
-	@CrossOrigin
-	@ResponseBody
-	@GetMapping(path = { "/comarca/{idcomarca}" })
-	public Comarca buscaunicacomarca(@PathVariable("idcomarca") int idcomarca) {
-		Comarca com = servicoComarca.findOne(idcomarca);
-		return com;
-	}
-
-	/**
-	 * Busca por estado através da silgla
-	 * 
-	 * @param silga
-	 * @return
-	 */
-	@CrossOrigin
-	@ResponseBody
-	@GetMapping(path = { "/comarca/porestado/{iduf}" })
-	public List<Comarca> buscaunicaestado(@PathVariable("iduf") int iduf) {
-		List<Comarca> com = servicoComarca.buscaEstado(iduf);
-		return com;
-	}
 
 	/**
 	 * Busca todas as bancas
@@ -192,7 +153,6 @@ public class ControleGeral {
 
 	/**
 	 * Traz todos os usuarios
-	 * 
 	 * @return
 	 */
 	@CrossOrigin
@@ -224,14 +184,12 @@ public class ControleGeral {
 	@ResponseBody
 	@GetMapping(path = { "/comarcapossui/{idcorrespondente}" })
 	public List<ComarcaPossui> findComPossui(@PathVariable("idcorrespondente") int idcorrespondente) {
-
 		List<ComarcaPossui> compossui = servicoComarcaPossui.findByid(idcorrespondente);
 		return compossui;
 	}
 
 	/**
 	 * Traz todos os colaboradores
-	 * 
 	 * @return
 	 */
 	@CrossOrigin
@@ -244,7 +202,6 @@ public class ControleGeral {
 
 	/**
 	 * Traz todos os colaboradores
-	 * 
 	 * @return
 	 */
 	@CrossOrigin

@@ -1,5 +1,6 @@
 package br.eti.nsouza.servicos;
 
+import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class ServicoCorrespondente {
 
 	}
 
-	public Correspondente save(Correspondente cor) {
+	public Correspondente save(Correspondente cor) throws SQLException {
 		entityManager.getTransaction().begin();
 		entityManager.persist(cor);
 		entityManager.getTransaction().commit();

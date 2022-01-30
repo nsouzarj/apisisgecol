@@ -5,6 +5,7 @@ import br.eti.nsouza.servicos.ServicoCorrespondente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -39,5 +40,19 @@ public class ControleCorrespondente {
         Correspondente cor = servicoCorrespondente.findOne(idcorrespondente);
         return cor;
     }
+
+    @CrossOrigin
+    @ResponseBody
+    @PostMapping(path = "/colaborador/}")
+    public  Correspondente salvaCarrespodente(@PathVariable Correspondente corr)  {
+        Correspondente correspondente = new Correspondente();
+        try {
+            correspondente= servicoCorrespondente.save(corr);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return correspondente;
+    }
+
 
 }
