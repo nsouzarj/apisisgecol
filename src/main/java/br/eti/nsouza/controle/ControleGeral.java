@@ -74,8 +74,7 @@ public class ControleGeral {
 	private ServicoComarca servicoComarca;
 	@Autowired
 	private ServicoBanca servicoBanca;
-	@Autowired
-	private ServicoCorrespondente servicoCorrespondente;
+
 	@Autowired
 	private ServicoUsuario servicoUsuario;
 	@Autowired
@@ -190,32 +189,6 @@ public class ControleGeral {
 		return com;
 	}
 
-	/**
-	 * Traz todos os colaboradores
-	 * 
-	 * @return
-	 */
-	@CrossOrigin
-	@GetMapping(path = "/colaborador")
-	@ResponseBody
-	List<Correspondente> findAllCor() {
-		List<Correspondente> com = servicoCorrespondente.findAll();
-		return com;
-	}
-
-	/**
-	 * TRaz unico correspondente
-	 * 
-	 * @param idcorrespondente
-	 * @return
-	 */
-	@CrossOrigin
-	@ResponseBody
-	@GetMapping(path = "/colaborador/{id}")
-	public Correspondente findcor(@PathVariable("id") int idcorrespondente) {
-		Correspondente cor = servicoCorrespondente.findOne(idcorrespondente);
-		return cor;
-	}
 
 	/**
 	 * Traz todos os usuarios
