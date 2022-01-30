@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Embeddable
 public class ComarcaCorrespondente implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "idcorrespondente")

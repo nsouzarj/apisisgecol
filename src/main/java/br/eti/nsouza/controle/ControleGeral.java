@@ -177,16 +177,7 @@ public class ControleGeral {
 		return usuario;
 	}
 
-	/**
-	 * Retorna as comarcas do correspondente
-	 */
-	@CrossOrigin
-	@ResponseBody
-	@GetMapping(path = { "/comarcapossui/{idcorrespondente}" })
-	public List<ComarcaPossui> findComPossui(@PathVariable("idcorrespondente") int idcorrespondente) {
-		List<ComarcaPossui> compossui = servicoComarcaPossui.findByid(idcorrespondente);
-		return compossui;
-	}
+
 
 	/**
 	 * Traz todos os colaboradores
