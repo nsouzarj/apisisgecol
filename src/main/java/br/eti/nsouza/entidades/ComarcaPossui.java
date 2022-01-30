@@ -36,9 +36,6 @@ public class ComarcaPossui implements Serializable {
 		this.comarcaCorrespondente = comarcaCorrespondente;
 	}
 
-
-	
-	
 	
 
 }

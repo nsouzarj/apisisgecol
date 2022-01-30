@@ -28,8 +28,9 @@ public class SwaggerConfiguratios extends WebMvcConfigurationSupport {
 
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder().title("** API DO SISGECOL**")
-                .description("Api com spring boot para o novo siste,a soegecol.").termsOfServiceUrl("Licença Publica").license("Para uso de teste")
-                .version("1.0").contact(new Contact("Nelson Seixas de souza","https://github.com/nsouzarj","nsouzarj@outlook.com")).
+                .description("Api com spring boot para o novo sistema de solicitaçãoes SISGECOL.").termsOfServiceUrl("Licença Particular").license("Para uso de desenvolvimento.").
+                description("Banco de Dados PostgreSQL 11, Lombok, Spring Boot e Swagger")
+                .version("1.0").contact(new Contact("Nelson Seixas de souza","https://github.com/nsouzarj/apisisgecol","nsouzarj@outlook.com")).
                 build();
     }
 
