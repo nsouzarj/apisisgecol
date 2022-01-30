@@ -10,7 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>apisisgecl</name>
-	<description>Servicos da pai do novo sisgecol</description>
+	<description>Servicos da API do novo sisgecol</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
