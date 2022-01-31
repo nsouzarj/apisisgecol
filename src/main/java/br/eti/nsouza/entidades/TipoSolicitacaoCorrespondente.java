@@ -1,5 +1,9 @@
 package br.eti.nsouza.entidades;
 
+import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -9,6 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ApiModel (
+		value       = "Classe TipoSolicitacaoCorrespondente",
+		description = "Esta classe e contem TipoSolicitacaoCorrespondente."
+)
 @Embeddable
 public class TipoSolicitacaoCorrespondente implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,44 +37,5 @@ public class TipoSolicitacaoCorrespondente implements Serializable {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "idenvio")
 	private Envio envio;
-
-	public TipoSolicitacaoCorrespondente() {
-	}
-
-	public TipoSolicitacaoCorrespondente(Correspondente correspondente,
-			TipoSolicitacao tipoSolicitacao) {
-		this.correspondente = correspondente;
-		this.tipoSolicitacao = tipoSolicitacao;
-	}
-
-	public Correspondente getCorrespondente() {
-		return correspondente;
-	}
-
-	public void setCorrespondente(Correspondente correspondente) {
-		this.correspondente = correspondente;
-	}
-
-	public TipoSolicitacao getTipoSolicitacao() {
-		return tipoSolicitacao;
-	}
-
-	public void setTipoSolicitacao(TipoSolicitacao tipoSolicitacao) {
-		this.tipoSolicitacao = tipoSolicitacao;
-	}
-
-	public Envio getEnvio() {
-		return envio;
-	}
-
-	public void setEnvio(Envio envio) {
-		this.envio = envio;
-	}
-
-	@Override
-	public String toString() {
-		return "TipoSolicitacaoCorrespondente [correspondente="
-				+ correspondente + ", tipoSolicitacao=" + tipoSolicitacao + "]";
-	}
 
 }
