@@ -27,6 +27,4 @@ public class Uf implements Serializable {
 	private String sigla;
 	@Column(length = 60)
 	private String nome;
-
-
 }

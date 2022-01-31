@@ -1,12 +1,23 @@
 package br.eti.nsouza.entidades;
 
+import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 /**
  * Classe de teste
  * @author Nelson
  *
  */
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ApiModel (
+		value       = "Classe Envio",
+		description = "Esta os tipos de envio da solicitacao."
+)
 @Entity
 @Table(name = "envio")
 @SequenceGenerator(name = "seqenvio", sequenceName = "idenvio", initialValue = 1, allocationSize = 1)
@@ -16,66 +27,4 @@ public class Envio  {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqenvio")
 	private Integer idenvio;
 	private String descricao;
-
-	public Envio() {
-	}
-
-	public Envio(Integer idenvio, String descricao) {
-		this.idenvio = idenvio;
-		this.descricao = descricao;
-	}
-
-	public Integer getIdenvio() {
-		return idenvio;
-	}
-
-	public void setIdenvio(Integer idenvio) {
-		this.idenvio = idenvio;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((descricao == null) ? 0 : descricao.hashCode());
-		result = prime * result + ((idenvio == null) ? 0 : idenvio.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Envio other = (Envio) obj;
-		if (descricao == null) {
-			if (other.descricao != null)
-				return false;
-		} else if (!descricao.equals(other.descricao))
-			return false;
-		if (idenvio == null) {
-			if (other.idenvio != null)
-				return false;
-		} else if (!idenvio.equals(other.idenvio))
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Envio [idenvio=" + idenvio + ", descricao=" + descricao + "]";
-	}
-
 }
