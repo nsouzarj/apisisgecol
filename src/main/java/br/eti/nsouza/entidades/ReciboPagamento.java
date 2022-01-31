@@ -16,6 +16,7 @@ import java.util.Date;
 		value       = "Classe Comarca",
 		description = "Esta classe e contem as comarcas dos estaados."
 )
+
 @Entity
 @Table(name = "recibopagamento")
 @SequenceGenerator(initialValue = 1, name = "seqpag", sequenceName = "seqpag", allocationSize = 1)
