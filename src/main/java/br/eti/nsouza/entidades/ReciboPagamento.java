@@ -1,5 +1,4 @@
 package br.eti.nsouza.entidades;
-
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
