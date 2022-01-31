@@ -8,21 +8,16 @@ import java.util.List;
 
 @Service
 public class ServicoProcesso {
-
     @Autowired
     private EntityManager entityManager;
-
-
     @SuppressWarnings("unchecked")
     public List<Processo> findAll() {
         List<Processo> processos =entityManager.createQuery("from Processo order by idprocesso asc ").setFirstResult(0).setMaxResults(300).getResultList();
         return processos;
     }
-
     //Salva o processo na bse
     public void salvaProcesso(Processo processo) throws SQLException {
         entityManager.persist(processo);
-
     }
 
     //Traz o unico processo na base
