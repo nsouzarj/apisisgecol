@@ -14,10 +14,8 @@ public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter {
 	private DataSource data;
     @Autowired
     private UsuarioServico ususervico;
-	
     @Autowired
     private CustomAuthenticationProvider authProvider;
-    
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
   
@@ -27,10 +25,7 @@ public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter {
 				"select emailprincipal as username, senha as password, ativo from usuario where emailprincipal=?")
 		.authoritiesByUsernameQuery(
 				"select emailprincipal as username, senha as password, ativo  from usuario where emailprincipal=?");
-			
-
 //  builder.userDetailsService(ususervico).passwordEncoder(new BCryptPasswordEncoder());
-
     }
  
 
