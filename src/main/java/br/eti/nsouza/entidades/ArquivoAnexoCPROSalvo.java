@@ -1,10 +1,8 @@
 package br.eti.nsouza.entidades;
-
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
