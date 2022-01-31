@@ -1,11 +1,21 @@
 package br.eti.nsouza.entidades;
 
+import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ApiModel (
+		value       = "Classe PerfilUsuario",
+		description = "Esta classe os pefils dos usuários."
+)
 @Entity
 @Table(name = "perfilusuario")
 @SequenceGenerator(allocationSize = 1, initialValue = 1, name = "seqperfil", sequenceName = "idperfil")
@@ -19,70 +29,4 @@ public class PerfilUsuario implements Serializable {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "idusuario")
 	private Usuario usuario;
-
-	public PerfilUsuario() {
-	}
-
-	public PerfilUsuario(Integer idperfilusuario, String perfil, Usuario usuario) {
-		this.idperfilusuario = idperfilusuario;
-		this.perfil = perfil;
-		this.usuario = usuario;
-	}
-
-	public Integer getIdperfilusuario() {
-		return idperfilusuario;
-	}
-
-	public void setIdperfilusuario(Integer idperfilusuario) {
-		this.idperfilusuario = idperfilusuario;
-	}
-
-	public String getPerfil() {
-		return perfil;
-	}
-
-	public void setPerfil(String perfil) {
-		this.perfil = perfil;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((idperfilusuario == null) ? 0 : idperfilusuario.hashCode());
-		result = prime * result + ((perfil == null) ? 0 : perfil.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		PerfilUsuario other = (PerfilUsuario) obj;
-		if (idperfilusuario == null) {
-			if (other.idperfilusuario != null)
-				return false;
-		} else if (!idperfilusuario.equals(other.idperfilusuario))
-			return false;
-		if (perfil == null) {
-			if (other.perfil != null)
-				return false;
-		} else if (!perfil.equals(other.perfil))
-			return false;
-		return true;
-	}
-
 }
