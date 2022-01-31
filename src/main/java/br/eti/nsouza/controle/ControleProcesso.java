@@ -10,7 +10,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 @RestController
-@CrossOrigin (origins = "*", maxAge = 3600)
+@CrossOrigin (origins = "*")
+@RequestMapping(value = "/api")
 public class ControleProcesso {
     @Autowired
     ServicoProcesso servicoProcesso;

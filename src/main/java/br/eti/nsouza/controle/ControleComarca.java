@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin (origins = "*", maxAge = 3600)
+@CrossOrigin (origins = "*")
+@RequestMapping(value = "/api")
 public class ControleComarca {
     @Autowired
     private ServicoComarca servicoComarca;
@@ -21,10 +22,10 @@ public class ControleComarca {
      * Pega todas as comarcas
      * @return
      */
-    @CrossOrigin
+    @CrossOrigin(value = "*",maxAge = 5000)
     @GetMapping(path = "/comarca")
     @ResponseBody
-    List<Comarca> findAll2() {
+    List<Comarca> findAll() {
         List<Comarca> com = servicoComarca.findAll();
         return com;
     }

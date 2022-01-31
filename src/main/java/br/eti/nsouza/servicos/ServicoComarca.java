@@ -2,14 +2,17 @@ package br.eti.nsouza.servicos;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.eti.nsouza.entidades.Comarca;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ServicoComarca {
 
-	@Autowired
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	@SuppressWarnings("unchecked")
@@ -19,9 +22,7 @@ public class ServicoComarca {
 	}
 	
 	public List<Comarca>buscaEstado(Integer iduf){
-		@SuppressWarnings("unchecked")
-		
-		List<Comarca>  comarcaporestado=entityManager.createQuery("from Comarca where uf.iduf='" + iduf + "' order by nome").getResultList();
+	    List<Comarca>  comarcaporestado=entityManager.createQuery("from Comarca where uf.iduf='" + iduf + "' order by nome").getResultList();
 		return comarcaporestado;
 	}
 	
@@ -31,19 +32,17 @@ public class ServicoComarca {
 		return com;
 	}
 
-	
+	@Transactional
 	public void delete(Integer idcomarca) {
-		entityManager.getTransaction().begin();
 		Comarca com = entityManager.find(Comarca.class, idcomarca);
 		entityManager.remove(com);
-		entityManager.getTransaction().commit();
+
 	}
-	
+
+	@Transactional
 	public Comarca update(Integer idcomarca) {
-		entityManager.getTransaction().begin();
 		Comarca com = entityManager.find(Comarca.class, idcomarca);
 		entityManager.merge(com);
-		entityManager.getTransaction().commit();
 		return com;
 	}
 	 

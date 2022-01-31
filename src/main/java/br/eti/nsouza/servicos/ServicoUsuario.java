@@ -2,15 +2,18 @@ package br.eti.nsouza.servicos;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.eti.nsouza.entidades.Comarca;
 import br.eti.nsouza.entidades.Usuario;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ServicoUsuario {
-	@Autowired
+	@PersistenceContext
 	private EntityManager entityManager;
 	
 	@SuppressWarnings("unchecked")
@@ -32,19 +35,21 @@ public class ServicoUsuario {
 		return usu;
 		
 	}
-	
+	@Transactional
 	public Usuario save(Usuario usu) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(usu);
 		entityManager.getTransaction().commit();
 		return usu;
     }
+	@Transactional
 	public void delete(Integer idusuario) {
 		entityManager.getTransaction().begin();
 		Usuario usu = entityManager.find(Usuario.class, idusuario);
 		entityManager.remove(usu);
 		entityManager.getTransaction().commit();
 	}
+	@Transactional
 	public Usuario update(Integer idusuario) {
 		entityManager.getTransaction().begin();
 		Usuario usu = entityManager.find(Usuario.class, idusuario);

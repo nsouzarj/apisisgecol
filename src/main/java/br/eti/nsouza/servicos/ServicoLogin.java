@@ -1,6 +1,7 @@
 package br.eti.nsouza.servicos;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ejb.access.EjbAccessException;
@@ -12,7 +13,7 @@ import br.eti.nsouza.entidades.Usuario;
 @Service
 public class ServicoLogin {
 
-	@Autowired
+	@PersistenceContext
 	private EntityManager entityManager;
 	public Usuario busca(String emaiprincipal, String senha) {
 

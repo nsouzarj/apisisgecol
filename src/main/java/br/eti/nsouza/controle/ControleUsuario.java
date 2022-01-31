@@ -13,14 +13,14 @@ import br.eti.nsouza.sisgecol.User;
 @RestController
 @CrossOrigin
 public class ControleUsuario {
-	 @RequestMapping(value="/login",method= RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
+	 @GetMapping(value="/login", produces= MediaType.APPLICATION_JSON_VALUE)
 	    public boolean login(User user) {
 		    System.out.print(user.getUsername());
 		    System.out.print(user.getPassword());
 	        return   user.getUsername().equals("username") && user.getPassword().equals("password");
 	    }
 	     
-	 @RequestMapping("/user")
+	 @GetMapping("/user")
 	    public Principal user(HttpServletRequest request) {
 	        String authToken = request.getHeader("Authorization")
 	          .substring("Basic".length()).trim();

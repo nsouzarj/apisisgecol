@@ -3,6 +3,7 @@ package br.eti.nsouza.servicos;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import br.eti.nsouza.entidades.StatusSolicitacao;
 
 @Service
 public class ServicoStatusSolicitacao {
-	@Autowired
+	@PersistenceContext
 	private EntityManager entityManager;
 	
 	@SuppressWarnings("unchecked")

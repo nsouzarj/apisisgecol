@@ -3,14 +3,17 @@ package br.eti.nsouza.servicos;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.eti.nsouza.entidades.Correspondente;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ServicoCorrespondente {
-	@Autowired
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	@SuppressWarnings("unchecked")
@@ -24,14 +27,14 @@ public class ServicoCorrespondente {
 		return com;
 
 	}
-
+	@Transactional
 	public Correspondente save(Correspondente cor) throws SQLException {
 		entityManager.getTransaction().begin();
 		entityManager.persist(cor);
 		entityManager.getTransaction().commit();
 		return cor;
 	}
-
+	@Transactional
 	public void delete(Integer idcorrespondente) {
 		entityManager.getTransaction().begin();
 		Correspondente corr = entityManager.find(Correspondente.class, idcorrespondente);
@@ -39,6 +42,7 @@ public class ServicoCorrespondente {
 		entityManager.getTransaction().commit();
 	}
 
+	@Transactional
 	public Correspondente update(Integer idcorrespondente) {
 		entityManager.getTransaction().begin();
 		Correspondente corr = entityManager.find(Correspondente.class, idcorrespondente);

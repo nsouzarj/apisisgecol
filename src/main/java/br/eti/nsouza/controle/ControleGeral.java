@@ -61,19 +61,15 @@ import br.eti.nsouza.servicos.ServicoUsuario;
 public class ControleGeral {
 
 	public void addCorsMappings(CorsRegistry registry) {
-
 		registry.addMapping("/**").allowedOrigins("*").allowedHeaders("*").exposedHeaders("*").allowedMethods("*")
 				.allowCredentials(true).maxAge(3600);
-
 	}
 
 
 	@Autowired
 	private ServicoUf servicoUf;
-
 	@Autowired
 	private ServicoBanca servicoBanca;
-
 	@Autowired
 	private ServicoUsuario servicoUsuario;
 	@Autowired
@@ -106,8 +102,6 @@ public class ControleGeral {
 		return usuario;
  
     }
-	
-
 
 	/**
 	 * Traz as uf
@@ -133,21 +127,6 @@ public class ControleGeral {
 		Uf uf = servicoUf.findOne(iduf);
 		return uf;
 
-	}
-
-
-
-	/**
-	 * Busca todas as bancas
-	 * 
-	 * @return
-	 */
-	@CrossOrigin
-	@GetMapping(path = "/bancas")
-	@ResponseBody
-	List<BancaProcesso> findAllBanca() {
-		List<BancaProcesso> com = servicoBanca.findAll();
-		return com;
 	}
 
 

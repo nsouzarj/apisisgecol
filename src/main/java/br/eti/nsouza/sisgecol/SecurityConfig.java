@@ -59,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	    
 	    http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll()
 				.antMatchers("/resources/**", "/webjars/**","/erro/**").permitAll().
-				antMatchers("/uf/**","/tipos/**","/solicitacao/**", "/status/**", "/comarcapossui/**", "/usuarios/**","/colaborador/**", "/bancas/**", "/comarca/**").permitAll();
+				antMatchers("/uf/**","/tipos/**","/api/solicitacao/**", "/status/**", "/api/comarcapossui/**", "/api/usuarios/**","/api/colaborador/**","/api/banca/**", "/api/bancas/**", "/api/comarca/**").permitAll();
 	     
 		http.cors();
        	}
