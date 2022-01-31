@@ -32,7 +32,5 @@ public class ControleUsuario {
 	     public Principal user(Principal principal) {
 	         return principal;
 	     }
-	 
-	
 
 }
