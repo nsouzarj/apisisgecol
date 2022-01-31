@@ -25,7 +25,6 @@ public class ControleSolicitacao {
     public Solicitacao find2(@PathVariable ("idsolicitacao") int idsolicitacao) {
         Solicitacao solicitacao = servicoSolicitacao.findById(idsolicitacao);
         return solicitacao;
-
     }
 
     /**

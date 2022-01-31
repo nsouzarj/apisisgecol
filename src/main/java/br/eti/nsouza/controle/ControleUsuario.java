@@ -28,7 +28,6 @@ public class ControleUsuario {
 	          .decode(authToken)).split(":")[0];
 	    }
 
-
 	 @GetMapping("/user/me")
 	     public Principal user(Principal principal) {
 	         return principal;
