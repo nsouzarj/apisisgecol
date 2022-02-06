@@ -44,7 +44,6 @@ public class ServicoBanca {
 	public void delete(Integer idbanca) throws Exception {
 		BancaProcesso soli = entityManager.find(BancaProcesso.class, idbanca);
 		entityManager.remove(soli);
-
 	}
 
 

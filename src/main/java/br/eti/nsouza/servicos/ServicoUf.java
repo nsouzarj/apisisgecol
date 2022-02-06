@@ -30,24 +30,18 @@ public class ServicoUf {
 	}
 	@Transactional
 	public Uf save(Uf uf) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(uf);
-		entityManager.getTransaction().commit();
 		return uf;
     }
 	@Transactional
 	public void delete(Integer iduf) {
-		entityManager.getTransaction().begin();
 		Uf uf = entityManager.find(Uf.class, iduf);
 		entityManager.remove(uf);
-		entityManager.getTransaction().commit();
 	}
 	@Transactional
 	public Uf update(Integer iduf) {
-		entityManager.getTransaction().begin();
 		Uf uf = entityManager.find(Uf.class, iduf);
 		entityManager.merge(uf);
-		entityManager.getTransaction().commit();
 		return uf;
 	}
 	 

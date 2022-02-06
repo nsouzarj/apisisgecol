@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
+import javax.persistence.PersistenceContext;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class ControleBanca {
             servicoBanca.delete(idbanca);
             return "Banca excluida com sucesso";
         } catch (Exception e) {
-           return "Erro ao excluir a banca"+e.getMessage();
+           return "Erro ao excluir a banca msg: -> "+e.getMessage();
         }
     }
 

@@ -29,25 +29,20 @@ public class ServicoCorrespondente {
 	}
 	@Transactional
 	public Correspondente save(Correspondente cor) throws SQLException {
-		entityManager.getTransaction().begin();
 		entityManager.persist(cor);
-		entityManager.getTransaction().commit();
 		return cor;
 	}
 	@Transactional
 	public void delete(Integer idcorrespondente) {
-		entityManager.getTransaction().begin();
 		Correspondente corr = entityManager.find(Correspondente.class, idcorrespondente);
 		entityManager.remove(corr);
-		entityManager.getTransaction().commit();
+
 	}
 
 	@Transactional
 	public Correspondente update(Integer idcorrespondente) {
-		entityManager.getTransaction().begin();
 		Correspondente corr = entityManager.find(Correspondente.class, idcorrespondente);
 		entityManager.merge(corr);
-		entityManager.getTransaction().commit();
 		return corr;
 	}
 

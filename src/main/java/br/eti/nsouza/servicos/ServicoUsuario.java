@@ -37,24 +37,18 @@ public class ServicoUsuario {
 	}
 	@Transactional
 	public Usuario save(Usuario usu) {
-		entityManager.getTransaction().begin();
-		entityManager.persist(usu);
-		entityManager.getTransaction().commit();
+	    entityManager.persist(usu);
 		return usu;
     }
 	@Transactional
 	public void delete(Integer idusuario) {
-		entityManager.getTransaction().begin();
 		Usuario usu = entityManager.find(Usuario.class, idusuario);
 		entityManager.remove(usu);
-		entityManager.getTransaction().commit();
 	}
 	@Transactional
 	public Usuario update(Integer idusuario) {
-		entityManager.getTransaction().begin();
 		Usuario usu = entityManager.find(Usuario.class, idusuario);
 		entityManager.merge(usu);
-		entityManager.getTransaction().commit();
 		return usu;
 	}
 
