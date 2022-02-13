@@ -1,12 +1,10 @@
 package br.eti.nsouza.controle;
-
 import br.eti.nsouza.entidades.Comarca;
 import br.eti.nsouza.entidades.ComarcaPossui;
 import br.eti.nsouza.servicos.ServicoComarca;
 import br.eti.nsouza.servicos.ServicoComarcaPossui;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

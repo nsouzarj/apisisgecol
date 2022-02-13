@@ -1,14 +1,12 @@
 package br.eti.nsouza.controle;
-import java.security.Principal;
-import java.util.Base64;
-import javax.servlet.http.HttpServletRequest;
+import br.eti.nsouza.sisgecol.User;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import br.eti.nsouza.sisgecol.User;
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+import java.util.Base64;
 
 @RestController
 @CrossOrigin

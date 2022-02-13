@@ -25,36 +25,15 @@
 	 */
 
 package br.eti.nsouza.controle;
-
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import br.eti.nsouza.entidades.BancaProcesso;
-import br.eti.nsouza.entidades.Comarca;
-import br.eti.nsouza.entidades.ComarcaPossui;
-import br.eti.nsouza.entidades.Correspondente;
-import br.eti.nsouza.entidades.Solicitacao;
 import br.eti.nsouza.entidades.StatusSolicitacao;
 import br.eti.nsouza.entidades.TipoSolicitacao;
 import br.eti.nsouza.entidades.Uf;
 import br.eti.nsouza.entidades.Usuario;
-import br.eti.nsouza.servicos.ServicoBanca;
-import br.eti.nsouza.servicos.ServicoComarca;
-import br.eti.nsouza.servicos.ServicoComarcaPossui;
-import br.eti.nsouza.servicos.ServicoCorrespondente;
-import br.eti.nsouza.servicos.ServicoLogin;
-import br.eti.nsouza.servicos.ServicoSolicitacao;
-import br.eti.nsouza.servicos.ServicoStatusSolicitacao;
-import br.eti.nsouza.servicos.ServicoTipoSolicitacao;
-import br.eti.nsouza.servicos.ServicoUf;
-import br.eti.nsouza.servicos.ServicoUsuario;
+import br.eti.nsouza.servicos.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)

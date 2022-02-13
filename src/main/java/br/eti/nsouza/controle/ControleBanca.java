@@ -1,13 +1,9 @@
 package br.eti.nsouza.controle;
-
 import br.eti.nsouza.entidades.BancaProcesso;
 import br.eti.nsouza.servicos.ServicoBanca;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-
-import javax.persistence.PersistenceContext;
 import java.sql.SQLException;
 import java.util.List;
 
