@@ -28,6 +28,7 @@ public class ServicoComarca {
 	
 
 	public Comarca findOne(Integer idcomarca) {
+		
 	    Comarca com =entityManager.find(Comarca.class, idcomarca);
 		return com;
 	}

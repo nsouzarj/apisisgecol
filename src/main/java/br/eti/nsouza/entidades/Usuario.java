@@ -11,9 +11,10 @@ import java.io.Serializable;
 import java.util.Date;
 @SuppressWarnings("deprecation")
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @ApiModel (
 		value       = "Classe Usuario",
 		description = "Esta classe e dos usuarios do estado."
