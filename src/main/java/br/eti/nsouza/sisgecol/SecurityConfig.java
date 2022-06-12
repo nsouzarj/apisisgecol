@@ -20,9 +20,10 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-//@CrossOrigin
+@CrossOrigin
 @Configuration
 
 @EnableWebSecurity(debug = true)
@@ -39,7 +40,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	
+
 	
 
 	PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -116,8 +117,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		String password = "nso1810";
 	    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-
-
 		System.out.println(new BCryptPasswordEncoder().encode("nso1810"));
 		
 	}

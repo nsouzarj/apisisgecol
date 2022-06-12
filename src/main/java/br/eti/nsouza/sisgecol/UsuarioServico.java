@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import br.eti.nsouza.entidades.Usuario;
-import br.eti.nsouza.servicos.ServicoUsuario;
+import br.eti.nsouza.entities.Usuario;
+import br.eti.nsouza.services.ServicoUsuario;
 @Component
 public class UsuarioServico implements  UserDetailsService {
 	@Autowired
